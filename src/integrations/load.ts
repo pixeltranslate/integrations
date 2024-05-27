@@ -2,14 +2,14 @@
 import { promises, existsSync } from 'node:fs'
 import * as yml from 'js-yaml'
 import { Integration } from '../types'
+import { integrationsDir } from '../paths'
 
-const INTEGRATION_FOLDER = './integrations'
-
-export async function loadIntegrationFromPath () {
-    const path = `${INTEGRATION_FOLDER}/cli.yml`
-    if (existsSync(path)) {
-        return yml.load(await promises.readFile(path, 'utf8')) as Integration
+export async function loadIntegrationFromPath (id: string) {
+    const path = `${integrationsDir}/${id}.yml`
+    if (!existsSync(path)) {
+        return
     }
+    return yml.load(await promises.readFile(path, 'utf8')) as Integration
 }
 
 /*
