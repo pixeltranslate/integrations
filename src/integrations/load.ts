@@ -5,7 +5,7 @@ import { globby } from 'globby'
 import { integrationsDir } from '../paths'
 import { integrationYMLSchema } from '../schemas'
 
-export async function loadIntegrationYML (id?: string) {
+export async function loadIntegrationYML (id: string) {
     const path = `${integrationsDir}/${id}.yml`
     if (!existsSync(path)) {
         return
@@ -14,11 +14,12 @@ export async function loadIntegrationYML (id?: string) {
     return { id, ...data }
 }
 
-export async function loadIntegrationFromId (id?: string) {
-    if(!id) return
+export async function loadIntegrationFromId (id: string) {
     const data = await loadIntegrationYML(id)
-    if(!data) return
-    return integrationYMLSchema.parse({ id, ...data })
+    if (!data) {
+        return
+    }
+    return integrationYMLSchema.parse(data)
 }
 
 export async function getAllIntegrationIds() {
