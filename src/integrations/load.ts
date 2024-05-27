@@ -2,8 +2,8 @@ import { join, basename, extname } from 'node:path'
 import { promises, existsSync } from 'node:fs'
 import * as yml from 'js-yaml'
 import { globby } from 'globby'
-import { Integration } from '../types'
 import { integrationsDir } from '../paths'
+import { integrationYMLSchema } from '../schemas'
 
 export async function loadIntegrationFromPath (id?: string) {
     const path = `${integrationsDir}/${id}.yml`
@@ -11,7 +11,7 @@ export async function loadIntegrationFromPath (id?: string) {
         return
     }
     const data = yml.load(await promises.readFile(path, 'utf8')) as Record<string, any>
-    return { id, ...data } as Integration
+    return integrationYMLSchema.parse({ id, ...data })
 }
 
 export async function loadIntegrations() {
