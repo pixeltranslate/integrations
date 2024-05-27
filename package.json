@@ -11,7 +11,8 @@
 
   "scripts": {
     "dev": "bun --watch ./src/index.ts",
-    "build": "bun build ./src/index.ts --compile --outfile ./build/server"
+    "build": "bun build ./src/index.ts --compile --outfile ./build/server",
+    "check": "bun integrity-check.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
