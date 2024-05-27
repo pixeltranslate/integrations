@@ -3,9 +3,6 @@ description: Access Pixeltranslate directly through your command line. Push and 
 type: other
 repo: pixeltranslate/cli
 icon: cli.svg
-links:
-  github: https://github.com/pixeltranslate/cli
 authors:
   - name: micmine
-    github: https://github.com/micmine
-    avatar: https://avatars.githubusercontent.com/micmine?v=4
+    github: micmine

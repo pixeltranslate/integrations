@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { createApp, createRouter } from "h3";
 
 import HealthRouteHandler from './routes/health'
