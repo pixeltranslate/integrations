@@ -37,6 +37,8 @@ authors:
 | repo        | The Github Repo address (without https://github.com)                    |
 | icon        | The name and suffix of the Icon (Add the icon into `~/icons`)           |
 
+> You can find some examples of other integrations [here](./integrations/).
+
 ## Development
 
 To install dependencies:
