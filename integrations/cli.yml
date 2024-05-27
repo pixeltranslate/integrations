@@ -1,0 +1,8 @@
+name: CLI
+description: Access Pixeltranslate directly through your command line. Push and pull translations into any project!
+type: other
+repo: pixeltranslate/cli
+icon: cli.svg
+authors:
+  - name: micmine
+    github: micmine
