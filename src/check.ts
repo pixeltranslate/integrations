@@ -6,7 +6,7 @@ import { integrationYMLSchema } from './schemas'
 const PREFIX = 'INTEGRITY'
 const makeErrorMessage = (id: string, error: string) => `${id}: ${error}`
 
-async function verifyIntegrity(id: string) {
+export async function verifyIntegrity(id: string) {
     const errors: string[] = []
 
     // Check 1: Does the integration config exist?
@@ -31,7 +31,7 @@ async function verifyIntegrity(id: string) {
     return errors
 }
 
-async function main() {
+async function verifyIntegrationsIntegrity() {
     const integrations = await getAllIntegrationIds()
     console.info(`${PREFIX}: Found ${integrations.length} integrations.`)
     
@@ -44,7 +44,7 @@ async function main() {
     console.info(`${PREFIX}: Check succeeded. All integrations configs are healthy`)
 }
 
-main().catch(err => {
+verifyIntegrationsIntegrity().catch(err => {
     console.error(err)
     process.exit(1)
 })
