@@ -4,7 +4,7 @@ import * as yml from 'js-yaml'
 import { Integration } from '../types'
 import { integrationsDir } from '../paths'
 
-export async function loadIntegrationFromPath (id: string) {
+export async function loadIntegrationFromPath (id?: string) {
     const path = `${integrationsDir}/${id}.yml`
     if (!existsSync(path)) {
         return
