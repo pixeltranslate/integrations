@@ -10,7 +10,8 @@ export async function loadIntegrationFromPath (id?: string) {
     if (!existsSync(path)) {
         return
     }
-    return yml.load(await promises.readFile(path, 'utf8')) as Integration
+    const data = yml.load(await promises.readFile(path, 'utf8')) as Record<string, any>
+    return { id, ...data } as Integration
 }
 
 export async function loadIntegrations() {

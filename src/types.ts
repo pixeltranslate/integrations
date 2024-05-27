@@ -7,6 +7,7 @@ interface IntegrationMaintainer {
 }
 
 export interface Integration {
+    id: string
     name: string
     description: string
     type: IntegrationType
