@@ -1,10 +1,10 @@
 import { createError, defineEventHandler, getRouterParam, serveStatic } from "h3";
 import { stat, readFile } from "node:fs/promises";
-import { loadIntegrationFromPath } from '../integrations/load'
+import { loadIntegrationFromId } from '../integrations/load'
 import { iconsDir } from "../paths";
 
 async function getIntegrationIconPath(id: string) {
-    const config = await loadIntegrationFromPath(id)
+    const config = await loadIntegrationFromId(id)
     if (!config) {
         throw createError({ statusCode: 404 })
     }
