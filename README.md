@@ -29,14 +29,6 @@ authors:
     avatar: LINK_TO_AVATAR
 ```
 
-| Key         | Description                                                             |
-|-------------|-------------------------------------------------------------------------|
-| name        | Full Integration Name                                                   |
-| description | Short description of the integration (max 100 words)                    |
-| type        | One of the following options: IDE, language, framework, pipeline, other |
-| repo        | The Github Repo address (without https://github.com)                    |
-| icon        | The name and suffix of the Icon (Add the icon into `~/icons`)           |
-
 > You can find some examples of other integrations [here](./integrations/).
 
 ## Development
