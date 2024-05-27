@@ -8,7 +8,7 @@ async function getIntegrationIconPath(id: string) {
     if (!config) {
         throw createError({ statusCode: 404 })
     }
-    return `${iconsDir}/${config.icon}`
+    return `${iconsDir}/${config.icon.name}`
 }
 
 async function readIntegrationIcon (id: string) {
