@@ -5,12 +5,17 @@ import { globby } from 'globby'
 import { integrationsDir } from '../paths'
 import { integrationYMLSchema } from '../schemas'
 
-export async function loadIntegrationFromId (id?: string) {
+export async function loadIntegrationYML (id?: string) {
     const path = `${integrationsDir}/${id}.yml`
     if (!existsSync(path)) {
         return
     }
     const data = yml.load(await promises.readFile(path, 'utf8')) as Record<string, any>
+    return { id, ...data }
+}
+
+export async function loadIntegrationFromId (id?: string) {
+    const data = await loadIntegrationYML(id)
     return integrationYMLSchema.parse({ id, ...data })
 }
 

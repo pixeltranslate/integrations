@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { getAllIntegrationIds, loadIntegrationFromId } from "./integrations/load"
+import { getAllIntegrationIds, loadIntegrationYML } from "./integrations/load"
 import { iconsDir } from "./paths"
 import { integrationYMLSchema } from './schemas'
 
@@ -10,7 +10,7 @@ async function verifyIntegrity(id: string) {
     const errors: string[] = []
 
     // Check 1: Does the integration config exist?
-    const integrationObj = await loadIntegrationFromId(id).catch(() => errors.push(makeErrorMessage(id, 'Integration config could not be found.')))
+    const integrationObj = await loadIntegrationYML(id).catch(() => errors.push(makeErrorMessage(id, 'Integration config could not be found.')))
     if (!integrationObj) {
         return errors
     }
@@ -18,7 +18,7 @@ async function verifyIntegrity(id: string) {
     // Check 2: Does the integration schema parse correctly?
     const integrationParse = integrationYMLSchema.safeParse(integrationObj)
     if (!integrationParse.success) {
-        errors.push(...integrationParse.error.issues.map(e => makeErrorMessage(id, `Error at ${e.path}: e.message`)))
+        errors.push(...integrationParse.error.issues.map(e => makeErrorMessage(id, `Error at ${e.path}: ${e.message}`)))
         return errors
     }
     const { data: integration } = integrationParse
@@ -33,7 +33,15 @@ async function verifyIntegrity(id: string) {
 
 async function main() {
     const integrations = await getAllIntegrationIds()
-    console.info(`${PREFIX}: Found ${integrations} integrations. Verifying integrity of each.`)
+    console.info(`${PREFIX}: Found ${integrations.length} integrations.`)
+    
+    const errors = (await Promise.all(integrations.map(async key => await verifyIntegrity(key)))).flat()
+    if (errors.length > 0) {
+        console.error(`${PREFIX}: Check Failed! Please resolve the following errors`)
+        errors.map(e => console.log(e))
+        return process.exit(1)
+    }
+    console.info(`${PREFIX}: Check succeeded. All integrations configs are healthy`)
 }
 
 main().catch(err => {
