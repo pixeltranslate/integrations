@@ -1,8 +1,8 @@
-type IntegrationType = 'IDE' | 'language' | 'framework' | 'pipeline'
+type IntegrationType = 'IDE' | 'language' | 'framework' | 'pipeline' | 'other'
+type IntegrationDisplayTypes = 'light' | 'dark'
 
 interface IntegrationMaintainer {
     name: string
-    avatar: string
     github: string
     twitter?: string
 }
