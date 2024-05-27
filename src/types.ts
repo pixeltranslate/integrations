@@ -6,11 +6,12 @@ interface IntegrationMaintainer {
     twitter?: string
 }
 
-interface Integration {
+export interface Integration {
     name: string
     description: string
     type: IntegrationType
     repo: string
+    icon: string
     links: {
         github: string
         website?: string

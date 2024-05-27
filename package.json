@@ -12,6 +12,7 @@
     "listhen": "^1.7.2"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.12.12"
   }
 }
