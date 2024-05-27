@@ -1,8 +1,0 @@
-name: Unity
-description: Integrate PixelTranslate directly into your next game! Sync and push translations right in your Unity editor.
-type: IDE
-repo: pixeltranslate/unity-plugin
-icon: unity.webp
-authors:
-  - name: ReaperMaga
-    github: ReaperMaga
