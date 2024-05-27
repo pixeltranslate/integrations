@@ -4,5 +4,4 @@ This repository contains a list of all possible PixelTranslate Integrations and 
 
 ## Adding new Integrations
 
-- `/offical`: Offical integrations maintained by our team
-- `/community`: Community integration
+Coming soon...
