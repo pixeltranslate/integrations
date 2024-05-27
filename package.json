@@ -1,5 +1,5 @@
 {
-  "name": "pixeltranslate-integrations",
+  "name": "@pixeltranslate/integrations",
   "private": true,
   "scripts": {
     "start": "listhen ./src/app.ts",
