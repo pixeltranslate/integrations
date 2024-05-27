@@ -1,0 +1,23 @@
+{
+  "name": "integrations",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+
+  "scripts": {
+    "dev": "bun --watch ./src/index.ts",
+    "build": "bun build ./src/index.ts --compile --outfile ./build/server"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "globby": "^14.0.1",
+    "h3": "^1.11.1",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.23.8"
+  }
+}
