@@ -3,10 +3,15 @@
   "private": true,
   "scripts": {
     "start": "listhen ./src/app.ts",
-    "dev": "listhen -w ./src/app.ts"
+    "dev": "listhen -w ./src/app.ts",
+    "typecheck": "typecheck ./src"
   },
   "dependencies": {
     "h3": "^1.11.1",
+    "js-yaml": "^4.1.0",
     "listhen": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12"
   }
 }
