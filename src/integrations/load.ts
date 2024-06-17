@@ -1,11 +1,11 @@
 import { join, basename, extname } from 'node:path'
-import { promises, existsSync } from 'node:fs'
+import { existsSync, promises } from 'node:fs'
 import * as yml from 'js-yaml'
 import { globby } from 'globby'
 import { integrationsDir } from '../paths'
 import { integrationYMLSchema } from '../schemas'
 
-export async function loadIntegrationYML (id?: string) {
+export async function loadIntegrationYML (id: string) {
     const path = `${integrationsDir}/${id}.yml`
     if (!existsSync(path)) {
         return
@@ -14,9 +14,12 @@ export async function loadIntegrationYML (id?: string) {
     return { id, ...data }
 }
 
-export async function loadIntegrationFromId (id?: string) {
+export async function loadIntegrationFromId (id: string) {
     const data = await loadIntegrationYML(id)
-    return integrationYMLSchema.parse({ id, ...data })
+    if (!data) {
+        return
+    }
+    return integrationYMLSchema.parse(data)
 }
 
 export async function getAllIntegrationIds() {

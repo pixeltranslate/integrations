@@ -15,4 +15,4 @@ app.use(router);
 router.get("/", IntegrationsListRouteHandler)
 router.get("/:integration", IntegrationByIdRouteHandler)
 router.get("/:integration/icon", IconRouteHandler)
-router.get("/health", HealthRouteHandler);
+router.get("/health", HealthRouteHandler)

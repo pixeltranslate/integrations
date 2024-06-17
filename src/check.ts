@@ -31,7 +31,7 @@ export async function verifyIntegrity(id: string) {
     return errors
 }
 
-async function verifyIntegrationsIntegrity() {
+export async function verifyIntegrationsIntegrity() {
     const integrations = await getAllIntegrationIds()
     console.info(`${PREFIX}: Found ${integrations.length} integrations.`)
     
@@ -43,8 +43,3 @@ async function verifyIntegrationsIntegrity() {
     }
     console.info(`${PREFIX}: Check succeeded. All integrations configs are healthy`)
 }
-
-verifyIntegrationsIntegrity().catch(err => {
-    console.error(err)
-    process.exit(1)
-})
