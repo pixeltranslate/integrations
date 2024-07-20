@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { GITHUB_AVATAR_URL, GITHUB_BASE_URL, ORIGIN } from './paths'
+import { GITHUB_AVATAR_URL, GITHUB_BASE_URL } from './paths'
 
 const githubUsernameSchema = z.string().transform(name => name.startsWith(GITHUB_BASE_URL) ? name : `${GITHUB_BASE_URL}/${name}`)
 
@@ -23,9 +23,7 @@ export const integrationYMLSchema = z.object({
     website: z.string().nullish()
   }))
 }).transform(({ icon, links, authors, ...args }) => {
-  const url = ORIGIN ? `${ORIGIN}/${args.id}` : undefined
-
-  const iconObj = { name: icon, ...(url ? { url: `${url}/icon` } : {}) }
+  const iconObj = { name: icon, url: `/icons/${icon}` }
   const linksObj = { github: `${GITHUB_BASE_URL}/${args.repo}`, ...links }
   const authorsArray = authors.map(({ avatar, ...args }) => ({
     ...args,

@@ -1,17 +1,11 @@
-import { loadIntegrationFromId } from '~/server/integrations/load'
+import { parseYMLToIntegration } from '~/server/integrations/parse'
 
 export default eventHandler(async (event) => {
   const integrationId = getRouterParam(event, 'id')
-  if (!integrationId) {
+  const _integration = await useStorage('assets:integrations').getItem(`${integrationId}.yml`)
+  if (!_integration || !integrationId) {
     throw createError({ statusCode: 404 })
   }
-  try {
-    return await loadIntegrationFromId(integrationId)
-  }
-  catch (err) {
-    if (err instanceof Error) {
-      throw createError({ statusCode: 404, message: err.name })
-    }
-    throw createError({ statusCode: 404 })
-  }
+
+  return parseYMLToIntegration(integrationId, _integration)
 })
