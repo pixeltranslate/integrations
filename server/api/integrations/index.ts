@@ -1,4 +1,4 @@
-import { parseYMLToIntegration } from '~/server/integrations/parse'
+import { parseYMLToIntegration } from '../../integrations/parse'
 
 export default defineEventHandler(async () => {
   const integrationFiles = await useStorage('assets:integrations').getKeys()
