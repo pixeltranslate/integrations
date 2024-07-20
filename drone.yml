@@ -1,0 +1,58 @@
+kind: pipeline
+type: kubernetes
+name: CI
+
+global-variables:
+  NODE_VER: &NODE_VER node:22.3.0-slim
+
+trigger:
+  event:
+    - pull_request
+
+steps:
+  - name: restore-cache
+    image: drillster/drone-volume-cache
+    pull: if-not-exists
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      restore: true
+      mount:
+        - ./.pnpm-store
+  - name: install
+    image: *NODE_VER
+    commands:
+      - corepack enable
+      - pnpm config set store-dir .pnpm-store
+      - pnpm i --frozen-lockfile
+  - name: lint
+    image: *NODE_VER
+    commands:
+      - corepack enable
+      - pnpm lint
+  - name: typecheck
+    image: *NODE_VER
+    commands:
+      - corepack enable
+      - pnpm typecheck
+  - name: check
+    image: *NODE_VER
+    commands:
+      - corepack enable
+      - pnpm check
+  - name: rebuild-cache
+    image: drillster/drone-volume-cache
+    pull: if-not-exists
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      rebuild: true
+      mount:
+        - ./.pnpm-store
+
+volumes:
+- name: cache
+  host:
+    path: /tmp/pnpm_cache

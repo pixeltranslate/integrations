@@ -13,7 +13,7 @@
     "typecheck": "nuxt typecheck",
     "lint": "eslint --max-warnings 0 .",
     "lint:fix": "eslint . --fix",
-    "check": "jiti ./src/check"
+    "check": "jiti ./scripts/integrity-check"
   },
   "dependencies": {
     "globby": "^14.0.1",
