@@ -1,4 +1,4 @@
-import { parseYMLToIntegration } from '~/server/integrations/parse'
+import { parseYMLToIntegration } from '../../integrations/parse'
 
 export default eventHandler(async (event) => {
   const integrationId = getRouterParam(event, 'id')
