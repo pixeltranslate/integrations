@@ -1,22 +1,33 @@
 {
   "name": "@pixeltranslate/integrations",
   "type": "module",
+  "main": "./nuxt.config.ts",
+  "engines": {
+    "pnpm": ">=9.4.0",
+    "node": ">=22.3.0"
+  },
+  "packageManager": "pnpm@9.4.0",
   "scripts": {
-    "dev": "bun --watch ./src/index.ts",
-    "build": "bun build ./src/index.ts --compile --outfile ./build/server",
-    "check": "bun integrity-check.ts"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "eslint . --fix",
+    "check": "jiti ./integrity-check"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
     "globby": "^14.0.1",
-    "h3": "^1.11.1",
     "js-yaml": "^4.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "@antfu/eslint-config": "^2.11.5",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.12.12",
+    "eslint": "^8.57.0",
+    "jiti": "^1.21.0",
+    "nuxt": "^3.12.4",
+    "typescript": "^5.5.3",
+    "vue-tsc": "^2.0.26"
   }
 }
