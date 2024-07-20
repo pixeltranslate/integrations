@@ -6,8 +6,11 @@ global-variables:
   NODE_VER: &NODE_VER node:22.3.0-slim
 
 trigger:
+  branch:
+    - main
   event:
     - pull_request
+    - push
 
 steps:
   - name: restore-cache
