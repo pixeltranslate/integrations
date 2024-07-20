@@ -4,7 +4,7 @@ This repository contains a list of all possible PixelTranslate Integrations and 
 
 ## Adding new Integrations
 
-To register a new integration, please create a new file inside `~/integrations`. The file name should be a unique key that matches the integration. Afterwards, add the Integration Icon into the `~/icons` folder. The Icon can either be a PNG or SVG.
+To register a new integration, please create a new file inside `~/integrations`. The file name should be a unique key that matches the integration. Afterwards, add the Integration Icon into the `~/public/integrations` folder. The Icon can either be a PNG or SVG.
 
 Afterwards, please open a new pull request for us to review the integration. The Integration code, must be open source, closed source integrations will not be added for security purposes.
 

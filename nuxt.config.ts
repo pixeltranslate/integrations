@@ -3,8 +3,5 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-20',
   typescript: {
     shim: false
-  },
-  future: {
-    compatibilityVersion: 4
   }
 })

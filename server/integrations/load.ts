@@ -2,8 +2,8 @@ import { basename, extname, join } from 'node:path'
 import { existsSync, promises } from 'node:fs'
 import * as yml from 'js-yaml'
 import { globby } from 'globby'
-import { integrationsDir } from '../paths'
-import { integrationYMLSchema } from '../schemas'
+import { integrationsDir } from './paths'
+import { integrationYMLSchema } from './schemas'
 
 export async function loadIntegrationYML(id: string) {
   const path = `${integrationsDir}/${id}.yml`

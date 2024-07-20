@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { getAllIntegrationIds, loadIntegrationYML } from './integrations/load'
+import { getAllIntegrationIds, loadIntegrationYML } from './load'
 import { iconsDir } from './paths'
 import { integrationYMLSchema } from './schemas'
 
