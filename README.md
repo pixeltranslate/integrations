@@ -36,17 +36,17 @@ authors:
 To install dependencies:
 
 ```bash
-bun install
+pnpm install
 ```
 
 To run in dev mode:
 
 ```bash
-bun dev
+pnpm dev
 ```
 
 To build project into single-file executeable:
 
 ```bash
-bun run build
+pnpm run build
 ```
