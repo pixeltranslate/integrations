@@ -16,13 +16,13 @@
     "check": "jiti ./integrity-check"
   },
   "dependencies": {
+    "@types/js-yaml": "^4.0.9",
     "globby": "^14.0.1",
     "js-yaml": "^4.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.11.5",
-    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.12.12",
     "eslint": "^8.57.0",
     "jiti": "^1.21.0",
