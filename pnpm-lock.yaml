@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
       globby:
         specifier: ^14.0.1
         version: 14.0.2
@@ -21,9 +24,6 @@ importers:
       '@antfu/eslint-config':
         specifier: ^2.11.5
         version: 2.23.0(@vue/compiler-sfc@3.4.33)(eslint@8.57.0)(typescript@5.5.3)(vitest@2.0.3(@types/node@20.14.11)(terser@5.31.3))
-      '@types/js-yaml':
-        specifier: ^4.0.9
-        version: 4.0.9
       '@types/node':
         specifier: ^20.12.12
         version: 20.14.11
